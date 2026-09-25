@@ -41,7 +41,7 @@ body::before {
     }
 }
 
-h2, h3, .bismillah, .prophetic-dua, .location-name, .contact-name-title {
+h2, h3, .location-name, .contact-name-title {
     font-family: 'El Messiri', sans-serif;
 }
 
@@ -172,19 +172,32 @@ a { color: inherit; text-decoration: none; }
     background: radial-gradient(circle at top, rgba(90, 107, 86, 0.05) 0%, transparent 60%);
 }
 
-.bismillah { color: var(--accent-green); font-size: 1.4em; margin-bottom: 15px; font-weight: 700; }
-.prophetic-dua { color: var(--text-main); font-size: 1.5em; line-height: 1.6; margin-bottom: 30px; font-weight: 700; }
+.bismillah { 
+    font-family: 'El Messiri', sans-serif;
+    color: var(--accent-green); 
+    font-size: 1.4em; 
+    margin-bottom: 20px; 
+    font-weight: 700; 
+}
+
+.quran-verse { 
+    font-family: 'Amiri', serif;
+    color: var(--text-main); 
+    font-size: 1.35em; 
+    line-height: 2.1; 
+    margin-bottom: 35px; 
+    font-weight: normal; 
+}
 
 .intro-text { 
     color: var(--text-main); 
-    font-size: 1.25em; 
-    margin-bottom: 35px; 
+    font-size: 1.2em; 
+    margin-bottom: 40px; 
     font-family: 'Cairo', sans-serif; 
-    font-weight: 700; 
+    font-weight: 600; 
     line-height: 1.8;
 }
 
-/* تنسيق الأسماء لمسافات متقاربة وأنيقة */
 .names-vertical {
     display: flex; 
     flex-direction: column; 
@@ -210,13 +223,13 @@ a { color: inherit; text-decoration: none; }
 
 .divider-ornament { color: var(--accent-light); font-size: 1.5em; margin: 25px 0; }
 
-.quran-verse { 
-    font-family: 'Amiri', serif;
+.prophetic-dua { 
+    font-family: 'El Messiri', sans-serif;
     color: var(--accent-green); 
-    font-size: 1.5em; 
+    font-size: 1.4em; 
     line-height: 1.8; 
-    margin-bottom: 20px; 
-    font-weight: 700;
+    margin-top: 15px; 
+    font-weight: 600; 
 }
 
 .section-container { margin-bottom: 50px; padding: 0 5px; width: 100%; }
@@ -308,7 +321,7 @@ a { color: inherit; text-decoration: none; }
     .arch-inner-border { padding: 50px 10px 30px 10px; }
     .names-vertical .name { font-size: 3.2em; } 
     .prophetic-dua { font-size: 1.3em; }
-    .quran-verse { font-size: 1.25em; }
+    .quran-verse { font-size: 1.25em; line-height: 2; }
     .time-block span { font-size: 1.8em; }
     .program-list .time { font-size: 1.2em; }
     .program-list .event { font-size: 1.05em; }
