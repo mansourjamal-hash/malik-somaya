@@ -1,10 +1,10 @@
 :root {
-    --bg-color: #1a3223;      
-    --card-bg: #22422e;       
-    --gold: #d4af37;          
-    --gold-light: #ebd698;
-    --text-main: #f0f4f1;     
-    --text-muted: #a9b8b0;    
+    --bg-color: #fbfbf9;      
+    --card-bg: rgba(255, 255, 255, 0.95); /* شفافية خفيفة جداً لتندمج مع الخلفية الموردة */
+    --accent-green: #6b7a67;  
+    --accent-light: #8f9e8b;  
+    --text-main: #3d4a3e;     
+    --text-muted: #788579;    
 }
 
 * { box-sizing: border-box; }
@@ -12,8 +12,13 @@
 body {
     font-family: 'Cairo', sans-serif;
     background-color: var(--bg-color);
-    background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px); 
-    background-size: 25px 25px;
+    /* ربط الصورة كخلفية ثابتة ومرتبة */
+    background-image: url('image_2b627b.png'); 
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
     color: var(--text-main);
     margin: 0;
     padding: 0;
@@ -21,19 +26,19 @@ body {
     overflow-x: hidden; 
 }
 
-/* استثناء الأسماء والآية من هذا الخط العريض */
-h2, h3, .bismillah, .prophetic-dua, .footer-names, .location-name, .contact-name-title {
+h2, h3, .bismillah, .prophetic-dua, .location-name, .contact-name-title {
     font-family: 'El Messiri', sans-serif;
 }
 
 .text-center { text-align: center; }
+a { color: inherit; text-decoration: none; }
 
 /* =========================================
-   المغلف الأخضر
+   المغلف
    ========================================= */
 .envelope-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: #172c1f;
+    background-color: rgba(251, 251, 249, 0.97); /* شبه شفاف لإظهار الورد بخفة */
     display: flex; justify-content: center; align-items: center;
     z-index: 9999;
     transition: opacity 0.8s ease 0.5s, visibility 0s linear 1.3s;
@@ -49,51 +54,48 @@ h2, h3, .bismillah, .prophetic-dua, .footer-names, .location-name, .contact-name
 
 .envelope-body {
     width: 280px; height: 380px; 
-    background-color: #22422e; 
+    background-color: var(--accent-light); 
     position: relative; 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
     margin: 0 auto;
 }
 
 .envelope-left {
     position: absolute; left: 0; top: 0; z-index: 1;
     border-top: 190px solid transparent; border-bottom: 190px solid transparent;
-    border-left: 140px solid #2a4e37;
+    border-left: 140px solid #82927f;
 }
 .envelope-right {
     position: absolute; right: 0; top: 0; z-index: 1;
     border-top: 190px solid transparent; border-bottom: 190px solid transparent;
-    border-right: 140px solid #2a4e37;
+    border-right: 140px solid #82927f;
 }
 .envelope-bottom {
     position: absolute; bottom: 0; left: 0; z-index: 2;
     border-left: 140px solid transparent; border-right: 140px solid transparent;
-    border-bottom: 200px solid #315a40;
+    border-bottom: 200px solid #758572;
 }
 .envelope-top-flap {
     position: absolute; top: 0; left: 0; z-index: 4;
     border-left: 140px solid transparent; border-right: 140px solid transparent;
-    border-top: 200px solid #386749; 
+    border-top: 200px solid #6b7a67; 
     transform-origin: top; 
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .wax-seal {
     position: absolute; top: 180px; left: 50%; transform: translate(-50%, -50%);
-    width: 65px; height: 65px; 
-    background: radial-gradient(circle, #d4af37, #aa871e);
-    border-radius: 50%; z-index: 5; color: white; display: flex;
-    justify-content: center; align-items: center; 
-    font-family: 'El Messiri', serif; font-size: 22px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    width: 55px; height: 55px; 
+    background: #d4af37; 
+    border-radius: 50%; z-index: 5; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: opacity 0.3s;
 }
-.wax-seal span { font-size: 14px; margin: 0 4px; color: #ffe8e8; }
 
 .click-to-open {
     margin-top: 40px; font-family: 'Cairo', sans-serif;
-    color: var(--gold-light); font-size: 1.1em; font-weight: 600;
+    color: var(--accent-green); font-size: 1.1em; font-weight: 600;
     animation: pulseText 1.5s infinite;
 }
 
@@ -117,29 +119,28 @@ h2, h3, .bismillah, .prophetic-dua, .footer-names, .location-name, .contact-name
     background-color: var(--card-bg);
     border-radius: 200px 200px 10px 10px;
     padding: 12px; margin-bottom: 50px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(107, 122, 103, 0.08);
+    border: 1px solid rgba(107, 122, 103, 0.15);
 }
 
 .arch-inner-border {
-    border: 2px solid var(--gold);
+    border: 2px solid var(--accent-light);
     border-radius: 190px 190px 5px 5px;
     padding: 70px 15px 40px 15px;
     text-align: center;
-    background: radial-gradient(circle at top, rgba(212, 175, 55, 0.12) 0%, transparent 60%);
+    background: radial-gradient(circle at top, rgba(107, 122, 103, 0.05) 0%, transparent 60%);
 }
 
-.bismillah { color: var(--gold-light); font-size: 1.3em; margin-bottom: 15px; }
-.prophetic-dua { color: var(--gold); font-size: 1.5em; line-height: 1.6; margin-bottom: 30px; }
+.bismillah { color: var(--accent-light); font-size: 1.3em; margin-bottom: 15px; }
+.prophetic-dua { color: var(--accent-green); font-size: 1.5em; line-height: 1.6; margin-bottom: 30px; }
 .intro-text { color: var(--text-muted); font-size: 1.1em; margin-bottom: 35px; }
 
-/* === تنسيق الأسماء החדش (رقيق وأنيق، غير دفش) === */
 .names-vertical {
     display: flex; flex-direction: column; align-items: center; margin-bottom: 30px;
 }
 .names-vertical .name {
-    font-family: 'Amiri', serif; /* خط رقيق وكلاسيكي */
-    font-weight: 400; /* إزالة السماكة (Bold) */
+    font-family: 'Amiri', serif; 
+    font-weight: 400; 
     font-size: 3.8em; 
     color: var(--text-main); 
     margin: 0; 
@@ -149,51 +150,51 @@ h2, h3, .bismillah, .prophetic-dua, .footer-names, .location-name, .contact-name
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-size: 1.8em; 
-    color: var(--gold); 
+    color: var(--accent-light); 
     margin: 10px 0;
 }
 
-.divider-ornament { color: var(--gold); font-size: 1.5em; margin: 25px 0; }
+.divider-ornament { color: var(--accent-light); font-size: 1.5em; margin: 25px 0; }
 
-/* === تنسيق الآية القرآنية (خط أميري مناسب للآيات) === */
 .quran-verse { 
     font-family: 'Amiri', serif;
-    color: var(--gold-light); 
-    font-size: 1.4em; /* تكبير بسيط لتكون مقروءة ووقورة */
+    color: var(--accent-green); 
+    font-size: 1.4em; 
     line-height: 1.8; 
     margin-bottom: 20px; 
 }
 
 .section-container { margin-bottom: 50px; padding: 0 5px; width: 100%; }
 .section-heading {
-    color: var(--gold); font-size: 1.7em; margin-bottom: 30px; position: relative; display: inline-block;
+    color: var(--accent-green); font-size: 1.7em; margin-bottom: 30px; position: relative; display: inline-block;
 }
 .section-heading::after {
-    content: ''; display: block; width: 50px; height: 2px; background-color: var(--gold); margin: 10px auto 0;
+    content: ''; display: block; width: 50px; height: 2px; background-color: var(--accent-light); margin: 10px auto 0;
 }
 
 .info-grid, .program-list, .location-card, .contact-card {
-    background-color: rgba(34, 66, 46, 0.6); 
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: var(--card-bg); 
+    border: 1px solid rgba(107, 122, 103, 0.2);
     border-radius: 10px; padding: 25px 20px;
     width: 100%;
+    box-shadow: 0 5px 15px rgba(107, 122, 103, 0.05);
 }
 
-.info-item { border-bottom: 1px dashed rgba(212, 175, 55, 0.4); padding-bottom: 15px; margin-bottom: 15px; }
+.info-item { border-bottom: 1px dashed rgba(107, 122, 103, 0.2); padding-bottom: 15px; margin-bottom: 15px; }
 .info-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.info-label { color: var(--gold); font-size: 0.9em; display: block; margin-bottom: 5px; }
-.info-value { margin: 0; font-size: 1.2em; font-family: 'El Messiri', serif; font-weight: bold; }
+.info-label { color: var(--accent-light); font-size: 0.9em; display: block; margin-bottom: 5px; }
+.info-value { margin: 0; font-size: 1.2em; font-family: 'El Messiri', serif; font-weight: bold; color: var(--text-main); }
 
 .countdown-wrapper { display: flex; justify-content: center; align-items: center; gap: 10px; direction: ltr; flex-wrap: wrap; }
 .time-block { text-align: center; min-width: 60px; }
-.time-block span { display: block; font-family: 'El Messiri', serif; font-size: 2.2em; color: var(--gold-light); line-height: 1; }
+.time-block span { display: block; font-family: 'El Messiri', serif; font-size: 2.2em; color: var(--accent-green); line-height: 1; }
 .time-block p { margin: 5px 0 0 0; font-size: 0.85em; color: var(--text-muted); }
-.separator { color: var(--gold); font-size: 1.5em; margin-top: -15px; }
+.separator { color: var(--accent-light); font-size: 1.5em; margin-top: -15px; }
 
 .program-list { list-style: none; margin: 0; }
-.program-list li { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed rgba(212, 175, 55, 0.4); }
+.program-list li { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed rgba(107, 122, 103, 0.2); }
 .program-list li:last-child { border-bottom: none; }
-.program-list .time { color: var(--gold); font-size: 1.3em; font-family: 'El Messiri', serif; font-weight: bold; display: inline-block; direction: ltr; }
+.program-list .time { color: var(--accent-green); font-size: 1.3em; font-family: 'El Messiri', serif; font-weight: bold; display: inline-block; direction: ltr; }
 .program-list .event { font-size: 1em; color: var(--text-main); font-weight: 600; text-align: right; flex-grow: 1; margin-right: 15px; line-height: 1.4;}
 .program-list .event small { color: var(--text-muted); font-size: 0.85em; font-weight: normal; }
 
@@ -202,46 +203,41 @@ h2, h3, .bismillah, .prophetic-dua, .footer-names, .location-name, .contact-name
 .location-desc { color: var(--text-muted); font-size: 0.95em; margin: 0 0 25px 0; }
 
 .btn-primary {
-    display: inline-block; background-color: var(--gold); color: #1a3223;
+    display: inline-block; background-color: var(--accent-green); color: #ffffff;
     font-weight: bold; padding: 12px 30px; border-radius: 30px; text-decoration: none;
-    transition: transform 0.3s; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s; box-shadow: 0 5px 15px rgba(107, 122, 103, 0.2);
     width: 100%; max-width: 250px;
 }
-.btn-primary:hover { transform: translateY(-3px); background-color: #e6c153; }
+.btn-primary:hover { transform: translateY(-3px); background-color: #556352; }
 
 .contact-grid { 
     display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
 }
 .contact-card { 
     padding: 25px 15px; flex: 1; min-width: 100%; 
-    display: flex; flex-direction: column; justify-content: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 @media (min-width: 400px) {
     .contact-card { min-width: 45%; } 
 }
 
 .contact-name-title { font-size: 1.2em; color: var(--text-main); margin: 0 0 5px 0; }
-.contact-role { color: var(--gold); font-size: 0.95em; margin: 0 0 15px 0; }
-.contact-phone { margin: 0 0 15px 0; font-size: 1.1em; font-weight: bold; font-family: 'Cairo', sans-serif; color: var(--gold-light); }
-
-.btn-outline {
-    display: inline-block; border: 1px solid var(--gold); color: var(--gold);
-    padding: 6px 25px; border-radius: 20px; text-decoration: none; font-size: 0.9em; 
-    transition: all 0.3s; align-self: center;
+.contact-role { color: var(--accent-light); font-size: 0.95em; margin: 0 0 15px 0; }
+.contact-phone { 
+    display: inline-block; border: 1px solid var(--accent-green); color: var(--accent-green);
+    padding: 6px 25px; border-radius: 20px; font-size: 1.1em; font-family: 'Cairo', sans-serif; font-weight: bold;
+    transition: all 0.3s;
 }
-.btn-outline:hover { background-color: var(--gold); color: var(--bg-color); }
+.contact-phone:hover { background-color: var(--accent-green); color: #ffffff; }
 
-.site-footer { text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 30px; margin-top: 30px; padding-bottom: 20px; }
-.footer-names { font-size: 1.8em; color: var(--gold); margin: 0; font-family: 'Amiri', serif; }
+.site-footer { text-align: center; padding-top: 20px; margin-top: 20px; padding-bottom: 20px; }
+.site-footer p { font-size: 1.1em; color: var(--accent-green); margin: 0; font-family: 'El Messiri', serif; font-weight: bold; }
 
-/* =========================================
-   ميديا كويري للهواتف الذكية (Responsive Design)
-   ========================================= */
 @media (max-width: 480px) {
     .arch-inner-border { padding: 50px 10px 30px 10px; }
-    .names-vertical .name { font-size: 3em; } /* تصغير متناسب للخط الرقيق في الموبايل */
+    .names-vertical .name { font-size: 3em; } 
     .prophetic-dua { font-size: 1.3em; }
-    .quran-verse { font-size: 1.2em; }
+    .quran-verse { font-size: 1.15em; }
     .time-block span { font-size: 1.8em; }
     .program-list .time { font-size: 1.1em; }
     .program-list .event { font-size: 0.95em; }
