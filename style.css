@@ -26,7 +26,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('download.jpg');
+    background-image: url('image_2b627b.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -184,8 +184,12 @@ a { color: inherit; text-decoration: none; }
     line-height: 1.8;
 }
 
+/* تنسيق الأسماء لمسافات متقاربة وأنيقة */
 .names-vertical {
-    display: flex; flex-direction: column; align-items: center; margin-bottom: 30px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 30px; 
 }
 .names-vertical .name {
     font-family: 'Amiri', serif; 
@@ -193,15 +197,14 @@ a { color: inherit; text-decoration: none; }
     font-size: 3.8em; 
     color: var(--accent-green); 
     margin: 0; 
-    line-height: 1.2;
+    line-height: 1; 
 }
-/* حل مشكلة تداخل الواو مع الضمة بزيادة المسافة السفلية */
 .names-vertical .and {
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-size: 1.8em; 
     color: var(--text-muted); 
-    margin: 10px 0 25px 0; 
+    margin: 15px 0; 
     line-height: 1;
 }
 
