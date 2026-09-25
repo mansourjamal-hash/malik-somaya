@@ -1,8 +1,6 @@
 :root {
     --bg-color: #fbfbf9;      
-    /* تقليل الشفافية قليلاً للصناديق لتندمج مع الورد بنعومة */
     --card-bg: rgba(255, 255, 255, 0.90); 
-    /* درجات الزيتي تم تعديلها لتكون ألطف وأكثر انسجاماً مع الثيم */
     --accent-green: #5a6b56;  
     --accent-light: #8fa08a;  
     --text-main: #2b3a2d;     
@@ -21,7 +19,6 @@ body {
     overflow-x: hidden; 
 }
 
-/* حل جذري لمشكلة أبعاد وحركة الخلفية المستفزة في الهواتف */
 body::before {
     content: "";
     position: fixed;
@@ -29,15 +26,14 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('download.jpg');
+    background-image: url('image_2b627b.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     z-index: -1;
-    pointer-events: none; /* لمنع أي تفاعل مع طبقة الخلفية */
+    pointer-events: none; 
 }
 
-/* تعديل الخلفية للشاشات الكبيرة (اللابتوب) لتبقى واضحة وبدون تمطيط */
 @media (min-width: 768px) {
     body::before {
         background-size: contain; 
@@ -53,7 +49,7 @@ h2, h3, .bismillah, .prophetic-dua, .location-name, .contact-name-title {
 a { color: inherit; text-decoration: none; }
 
 /* =========================================
-   المغلف
+   المغلف 
    ========================================= */
 .envelope-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -67,12 +63,31 @@ a { color: inherit; text-decoration: none; }
     display: flex; flex-direction: column; align-items: center;
     cursor: pointer;
     transition: transform 0.3s;
-    width: 100%; max-width: 320px;
+    width: 100%; max-width: 380px; 
 }
 .envelope-container:hover { transform: translateY(-5px); }
 
+.envelope-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.envelope-header p {
+    font-family: 'Cairo', sans-serif;
+    color: var(--accent-light);
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+.envelope-header h2 {
+    font-family: 'Amiri', serif;
+    color: var(--accent-green);
+    font-size: 2.2em;
+    margin: 0;
+}
+
 .envelope-body {
-    width: 280px; height: 380px; 
+    width: 320px; 
+    height: 210px; 
     background-color: var(--accent-light); 
     position: relative; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -82,43 +97,49 @@ a { color: inherit; text-decoration: none; }
 
 .envelope-left {
     position: absolute; left: 0; top: 0; z-index: 1;
-    border-top: 190px solid transparent; border-bottom: 190px solid transparent;
-    border-left: 140px solid #82947e;
+    border-top: 105px solid transparent; border-bottom: 105px solid transparent;
+    border-left: 160px solid #82947e;
 }
 .envelope-right {
     position: absolute; right: 0; top: 0; z-index: 1;
-    border-top: 190px solid transparent; border-bottom: 190px solid transparent;
-    border-right: 140px solid #82947e;
+    border-top: 105px solid transparent; border-bottom: 105px solid transparent;
+    border-right: 160px solid #82947e;
 }
 .envelope-bottom {
     position: absolute; bottom: 0; left: 0; z-index: 2;
-    border-left: 140px solid transparent; border-right: 140px solid transparent;
-    border-bottom: 200px solid #758671;
+    border-left: 160px solid transparent; border-right: 160px solid transparent;
+    border-bottom: 120px solid #758671;
 }
 .envelope-top-flap {
     position: absolute; top: 0; left: 0; z-index: 4;
-    border-left: 140px solid transparent; border-right: 140px solid transparent;
-    border-top: 200px solid var(--accent-green); 
+    border-left: 160px solid transparent; border-right: 160px solid transparent;
+    border-top: 125px solid var(--accent-green); 
     transform-origin: top; 
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .wax-seal {
-    position: absolute; top: 180px; left: 50%; transform: translate(-50%, -50%);
-    width: 55px; height: 55px; 
+    position: absolute; top: 115px; left: 50%; transform: translate(-50%, -50%);
+    width: 50px; height: 50px; 
     background: #d4af37; 
     border-radius: 50%; z-index: 5; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: opacity 0.3s;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-family: 'Amiri', serif; font-size: 18px;
+}
+.wax-seal span {
+    margin: 0 4px; font-size: 12px; color: rgba(255,255,255,0.7);
 }
 
 .click-to-open {
-    margin-top: 40px; font-family: 'Cairo', sans-serif;
+    margin-top: 35px; font-family: 'Cairo', sans-serif;
     color: var(--accent-green); font-size: 1.1em; font-weight: 700;
     animation: pulseText 1.5s infinite;
 }
+.click-to-open span { font-size: 1.3em; margin-right: 5px; }
 
-@keyframes pulseText { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes pulseText { 0%, 100% { opacity: 0.5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(3px); } }
 
 .envelope-container.open .envelope-top-flap { transform: rotateX(180deg); }
 .envelope-container.open .wax-seal { opacity: 0; }
@@ -140,7 +161,7 @@ a { color: inherit; text-decoration: none; }
     padding: 12px; margin-bottom: 50px;
     box-shadow: 0 10px 25px rgba(90, 107, 86, 0.1);
     border: 1px solid rgba(90, 107, 86, 0.15);
-    backdrop-filter: blur(5px); /* يضيف نعومة إذا كانت الخلفية ملونة */
+    backdrop-filter: blur(5px); 
 }
 
 .arch-inner-border {
@@ -174,12 +195,14 @@ a { color: inherit; text-decoration: none; }
     margin: 0; 
     line-height: 1.2;
 }
+/* حل مشكلة تداخل الواو مع الضمة بزيادة المسافة السفلية */
 .names-vertical .and {
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-size: 1.8em; 
     color: var(--text-muted); 
-    margin: 10px 0;
+    margin: 10px 0 25px 0; 
+    line-height: 1;
 }
 
 .divider-ornament { color: var(--accent-light); font-size: 1.5em; margin: 25px 0; }
@@ -249,7 +272,7 @@ a { color: inherit; text-decoration: none; }
     padding: 25px 15px; flex: 1; min-width: 100%; 
     display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
-@media (min-width: 400px) {
+@media (min-width: 550px) {
     .contact-card { min-width: 45%; } 
 }
 
