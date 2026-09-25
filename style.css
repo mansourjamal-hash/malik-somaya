@@ -1,10 +1,10 @@
 :root {
     --bg-color: #fbfbf9;      
     --card-bg: rgba(255, 255, 255, 0.95); 
-    --accent-green: #6b7a67;  
-    --accent-light: #8f9e8b;  
-    --text-main: #3d4a3e;     
-    --text-muted: #788579;    
+    --accent-green: #4d5c49;  /* تم تغميقه قليلاً لزيادة الوضوح */
+    --accent-light: #7b8a77;  
+    --text-main: #1f2b20;     /* تم تغميقه جداً ليصبح القراءة مريحة للعين */
+    --text-muted: #59665a;    /* لون النصوص الثانوية أصبح أوضح */
 }
 
 * { box-sizing: border-box; }
@@ -101,7 +101,7 @@ a { color: inherit; text-decoration: none; }
 
 .click-to-open {
     margin-top: 40px; font-family: 'Cairo', sans-serif;
-    color: var(--accent-green); font-size: 1.1em; font-weight: 600;
+    color: var(--accent-green); font-size: 1.1em; font-weight: 700;
     animation: pulseText 1.5s infinite;
 }
 
@@ -137,18 +137,27 @@ a { color: inherit; text-decoration: none; }
     background: radial-gradient(circle at top, rgba(107, 122, 103, 0.05) 0%, transparent 60%);
 }
 
-.bismillah { color: var(--accent-light); font-size: 1.3em; margin-bottom: 15px; }
-.prophetic-dua { color: var(--accent-green); font-size: 1.5em; line-height: 1.6; margin-bottom: 30px; }
-.intro-text { color: var(--text-muted); font-size: 1.2em; margin-bottom: 35px; }
+.bismillah { color: var(--accent-green); font-size: 1.4em; margin-bottom: 15px; font-weight: 700; }
+.prophetic-dua { color: var(--text-main); font-size: 1.5em; line-height: 1.6; margin-bottom: 30px; font-weight: 700; }
+
+/* تحسين خط النص الترحيبي ليكون مقروءاً بوضوح (Cairo) */
+.intro-text { 
+    color: var(--text-main); 
+    font-size: 1.25em; 
+    margin-bottom: 35px; 
+    font-family: 'Cairo', sans-serif; 
+    font-weight: 700; 
+    line-height: 1.8;
+}
 
 .names-vertical {
     display: flex; flex-direction: column; align-items: center; margin-bottom: 30px;
 }
 .names-vertical .name {
     font-family: 'Amiri', serif; 
-    font-weight: 400; 
+    font-weight: 700; /* تغميظ الأسماء لتبرز أكثر */
     font-size: 3.8em; 
-    color: var(--text-main); 
+    color: var(--accent-green); 
     margin: 0; 
     line-height: 1.2;
 }
@@ -156,29 +165,30 @@ a { color: inherit; text-decoration: none; }
     font-family: 'Amiri', serif;
     font-weight: 400;
     font-size: 1.8em; 
-    color: var(--accent-light); 
+    color: var(--text-muted); 
     margin: 10px 0;
 }
 
 .divider-ornament { color: var(--accent-light); font-size: 1.5em; margin: 25px 0; }
 
+/* تحسين وضوح الآية القرآنية */
 .quran-verse { 
     font-family: 'Amiri', serif;
     color: var(--accent-green); 
-    font-size: 1.4em; 
+    font-size: 1.5em; 
     line-height: 1.8; 
     margin-bottom: 20px; 
+    font-weight: 700;
 }
 
 .section-container { margin-bottom: 50px; padding: 0 5px; width: 100%; }
 .section-heading {
-    color: var(--accent-green); font-size: 1.7em; margin-bottom: 30px; position: relative; display: inline-block;
+    color: var(--accent-green); font-size: 1.7em; margin-bottom: 30px; position: relative; display: inline-block; font-weight: 700;
 }
 .section-heading::after {
     content: ''; display: block; width: 50px; height: 2px; background-color: var(--accent-light); margin: 10px auto 0;
 }
 
-/* حل مشكلة خلفية العداد بإضافته لفئة الصناديق */
 .info-grid, .countdown-wrapper, .program-list, .location-card, .contact-card {
     background-color: var(--card-bg); 
     border: 1px solid rgba(107, 122, 103, 0.2);
@@ -189,36 +199,35 @@ a { color: inherit; text-decoration: none; }
 
 .info-item { border-bottom: 1px dashed rgba(107, 122, 103, 0.2); padding-bottom: 15px; margin-bottom: 15px; }
 .info-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.info-label { color: var(--accent-light); font-size: 0.9em; display: block; margin-bottom: 5px; }
+.info-label { color: var(--text-muted); font-size: 0.9em; display: block; margin-bottom: 5px; font-weight: 600; }
 .info-value { margin: 0; font-size: 1.3em; font-family: 'El Messiri', serif; font-weight: bold; color: var(--text-main); }
 
-/* تنسيق العداد الداخلي */
 .countdown-wrapper { 
     display: flex; justify-content: center; align-items: center; gap: 10px; direction: ltr; flex-wrap: wrap; 
 }
 .time-block { text-align: center; min-width: 60px; }
-.time-block span { display: block; font-family: 'El Messiri', serif; font-size: 2.2em; color: var(--accent-green); line-height: 1; }
-.time-block p { margin: 5px 0 0 0; font-size: 0.85em; color: var(--text-muted); }
+.time-block span { display: block; font-family: 'El Messiri', serif; font-size: 2.2em; color: var(--accent-green); line-height: 1; font-weight: bold; }
+.time-block p { margin: 5px 0 0 0; font-size: 0.9em; color: var(--text-muted); font-weight: 600; }
 .separator { color: var(--accent-light); font-size: 1.5em; margin-top: -15px; }
 
 .program-list { list-style: none; margin: 0; }
 .program-list li { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed rgba(107, 122, 103, 0.2); }
 .program-list li:last-child { border-bottom: none; }
 .program-list .time { color: var(--accent-green); font-size: 1.4em; font-family: 'El Messiri', serif; font-weight: bold; display: inline-block; direction: ltr; }
-.program-list .event { font-size: 1.1em; color: var(--text-main); font-weight: 600; text-align: right; flex-grow: 1; margin-right: 15px; line-height: 1.4;}
-.program-list .event small { color: var(--text-muted); font-size: 0.85em; font-weight: normal; }
+.program-list .event { font-size: 1.1em; color: var(--text-main); font-weight: 700; text-align: right; flex-grow: 1; margin-right: 15px; line-height: 1.4;}
+.program-list .event small { color: var(--text-muted); font-size: 0.9em; font-weight: 600; }
 
 .location-card { padding: 35px 15px; }
-.location-name { font-size: 1.5em; color: var(--text-main); margin: 0 0 5px 0; }
-.location-desc { color: var(--text-muted); font-size: 1em; margin: 0 0 25px 0; }
+.location-name { font-size: 1.5em; color: var(--text-main); margin: 0 0 5px 0; font-weight: 700;}
+.location-desc { color: var(--text-muted); font-size: 1.05em; margin: 0 0 25px 0; font-weight: 600;}
 
 .btn-primary {
     display: inline-block; background-color: var(--accent-green); color: #ffffff;
     font-weight: bold; padding: 12px 30px; border-radius: 30px; text-decoration: none;
     transition: transform 0.3s; box-shadow: 0 5px 15px rgba(107, 122, 103, 0.2);
-    width: 100%; max-width: 250px;
+    width: 100%; max-width: 250px; font-size: 1.1em;
 }
-.btn-primary:hover { transform: translateY(-3px); background-color: #556352; }
+.btn-primary:hover { transform: translateY(-3px); background-color: #3b4737; }
 
 .contact-grid { 
     display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
@@ -231,25 +240,39 @@ a { color: inherit; text-decoration: none; }
     .contact-card { min-width: 45%; } 
 }
 
-.contact-name-title { font-size: 1.2em; color: var(--text-main); margin: 0 0 5px 0; }
-.contact-role { color: var(--accent-light); font-size: 0.95em; margin: 0 0 15px 0; }
+.contact-name-title { font-size: 1.25em; color: var(--text-main); margin: 0 0 5px 0; font-weight: 700;}
+.contact-role { color: var(--text-muted); font-size: 1em; margin: 0 0 15px 0; font-weight: 600;}
 .contact-phone { 
-    display: inline-block; border: 1px solid var(--accent-green); color: var(--accent-green);
+    display: inline-block; border: 2px solid var(--accent-green); color: var(--accent-green);
     padding: 6px 25px; border-radius: 20px; font-size: 1.1em; font-family: 'Cairo', sans-serif; font-weight: bold;
     transition: all 0.3s;
 }
 .contact-phone:hover { background-color: var(--accent-green); color: #ffffff; }
 
-.site-footer { text-align: center; padding-top: 20px; margin-top: 20px; padding-bottom: 20px; }
-.site-footer p { font-size: 1.1em; color: var(--accent-green); margin: 0; font-family: 'El Messiri', serif; font-weight: bold; }
+/* حل مشكلة تداخل الدعاء مع الورود بوضعه داخل خلفية بيضاء أنيقة */
+.site-footer { text-align: center; padding-top: 10px; margin-top: 20px; padding-bottom: 40px; }
+.site-footer p { 
+    font-size: 1.2em; 
+    color: var(--text-main); 
+    margin: 0; 
+    font-family: 'Cairo', sans-serif; 
+    font-weight: 700; 
+    background-color: var(--card-bg);
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(107, 122, 103, 0.1);
+    border: 1px solid rgba(107, 122, 103, 0.2);
+}
 
 @media (max-width: 480px) {
     .arch-inner-border { padding: 50px 10px 30px 10px; }
-    .names-vertical .name { font-size: 3em; } 
+    .names-vertical .name { font-size: 3.2em; } 
     .prophetic-dua { font-size: 1.3em; }
-    .quran-verse { font-size: 1.15em; }
+    .quran-verse { font-size: 1.25em; }
     .time-block span { font-size: 1.8em; }
     .program-list .time { font-size: 1.2em; }
-    .program-list .event { font-size: 1em; }
-    .contact-name-title { font-size: 1.1em; }
+    .program-list .event { font-size: 1.05em; }
+    .contact-name-title { font-size: 1.15em; }
+    .site-footer p { font-size: 1.05em; padding: 10px 20px; }
 }
